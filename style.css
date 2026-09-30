@@ -1,0 +1,31 @@
+:root {
+  --page: #F7F0E4; --surface: #FFFBF3; --ink: #2B1F16; --muted: #6A5B4E; --line: #E3D8C6; --brand: #A8461A;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --page: #1A1410; --surface: #272019; --ink: #F6EEE2; --muted: #B9AA9A; --line: #3A3027; --brand: #F2A56B; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+.hero { max-width: 720px; margin: 0 auto; padding: 44px 20px 0; text-align: center; }
+.mark { display: inline-block; width: 72px; height: 72px; border-radius: 16px; }
+.hero h1 { font-family: "SF Pro Rounded", -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 800; font-size: 42px; letter-spacing: -0.5px; margin: 14px 0 2px; }
+.hero p { margin: 0; color: var(--muted); }
+nav { margin-top: 22px; padding: 10px 0; font-size: 15px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+nav a { color: var(--ink); text-decoration: none; display: inline-block; margin: 0 12px; padding: 4px 0; }
+nav a:hover, nav a[aria-current="page"] { color: var(--brand); }
+main { max-width: 720px; margin: 0 auto; padding: 24px 20px 64px; }
+h2 { font-weight: 800; font-size: 28px; line-height: 1.25; margin: 28px 0 8px; }
+h3 { font-weight: 700; font-size: 20px; margin: 28px 0 4px; padding-top: 18px; border-top: 1px solid var(--line); }
+a { color: var(--brand); }
+ol, ul { padding-left: 22px; }
+li { margin: 4px 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 22px; margin: 18px 0; }
+.cols { display: grid; gap: 14px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .cols { grid-template-columns: 1fr 1fr; } }
+.cols .card { margin: 0; }
+.cols h3 { border: 0; padding: 0; margin: 0 0 6px; }
+.badge { display: inline-block; background: #000; color: #fff; text-decoration: none; border-radius: 10px; padding: 10px 22px; font-weight: 600; margin: 12px 0; }
+.muted { color: var(--muted); font-size: 15px; }
+footer { max-width: 720px; margin: 0 auto; text-align: center; color: var(--muted); font-size: 14px; padding: 20px; border-top: 1px solid var(--line); }
