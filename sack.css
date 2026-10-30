@@ -1,0 +1,61 @@
+/* A flour sack: unbleached linen, indigo stamping ink, one woven stripe down the side. */
+:root {
+  --ground: #ece5d4; --label: #f7f2e6; --ink: #1e2c55; --worn: #4c5778; --thread: #8e93a3; --stripe: #a3301c;
+  --dough: #e6c78f;
+  --stamp: Superclarendon, "Clarendon", "Rockwell", "Roboto Slab", Georgia, serif;
+  --read: Futura, "Trebuchet MS", "Century Gothic", Verdana, sans-serif;
+  --figure: Rockwell, "Roboto Slab", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ground: #12161f; --label: #1c2230; --ink: #ede6d6; --worn: #a9aebc; --thread: #4f5668; --stripe: #f0896b; --dough: #d9bc88; }
+}
+* { box-sizing: border-box; }
+html { background: var(--ground); }
+body {
+  margin: 0; color: var(--ink); font: 500 1.0625rem/1.55 var(--read);
+  background:
+    linear-gradient(90deg, var(--stripe) 0 10px, transparent 10px 13px, var(--stripe) 13px 15px, transparent 15px 18px, var(--ink) 18px 20px, transparent 20px),
+    repeating-linear-gradient(0deg, color-mix(in srgb, var(--ink) 4%, transparent) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 4%, transparent) 0 1px, transparent 1px 3px),
+    var(--ground);
+}
+.sack { max-width: 44rem; margin: 0 auto; padding: 2.25rem 1.25rem 2.5rem 2.75rem; }
+.brand { margin: 0 0 2.25rem; font: 700 2.1rem/1 var(--stamp); }
+.brand a { color: var(--ink); text-decoration: none; }
+a { color: var(--stripe); text-underline-offset: 3px; }
+h1, h2 { font: 700 clamp(1.9rem, 6vw, 2.9rem)/1.12 var(--stamp); margin: 0 0 1rem; }
+h3 {
+  display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 .6rem;
+  font: 700 .84rem/1.3 var(--read); letter-spacing: .13em; text-transform: uppercase;
+}
+h3::after { content: ""; flex: 1; border-top: 2px dashed var(--thread); }
+h4 { font: 700 1.05rem/1.3 var(--read); margin: 1.6rem 0 .3rem; }
+p { margin: 0 0 .9rem; }
+.quiet { color: var(--worn); font-size: .95rem; }
+.lead { font-size: 1.2rem; line-height: 1.5; }
+figure { margin: 0; }
+
+/* The day, worked back from the oven: the site's main picture, in type, not a phone mock-up. */
+.dayline { list-style: none; margin: 1.5rem 0 2rem; padding: 0; }
+.dayline li { display: grid; grid-template-columns: 5rem 1rem 1fr; gap: .6rem; }
+.dayline time { font: 400 .95rem/1.5 var(--figure); text-align: right; color: var(--worn); }
+.dayline i { position: relative; display: block; }
+.dayline i::before { content: ""; position: absolute; left: 3px; top: .35rem; width: 10px; height: 10px; border: 2px solid var(--ink); }
+.dayline i::after { content: ""; position: absolute; left: 7px; top: 1.15rem; bottom: -.35rem; border-left: 2px solid var(--thread); }
+.dayline li:last-child i::after { display: none; }
+.dayline span { padding-bottom: .75rem; }
+.dayline small { display: block; color: var(--worn); font-size: .88rem; }
+.dayline .oven time { color: var(--stripe); font-weight: 700; }
+.dayline .oven i::before { background: var(--stripe); border-color: var(--stripe); width: 14px; height: 14px; left: 1px; }
+.dayline .oven span { font: 700 1.3rem/1.3 var(--stamp); }
+
+.ticket {
+  background: var(--label); padding: 1.1rem 1.25rem; margin: 1.25rem 0;
+  outline: 1px dashed var(--thread); outline-offset: -5px;
+}
+.ticket p:last-child { margin-bottom: 0; }
+
+footer { margin-top: 3.5rem; border-top: 2px dashed var(--thread); padding-top: 1.1rem; color: var(--worn); font-size: .92rem; }
+footer nav { display: flex; flex-wrap: wrap; gap: .3rem 1.25rem; margin-bottom: .6rem; }
+footer nav a { color: var(--ink); font-weight: 700; text-decoration: none; }
+footer nav a[aria-current] { text-decoration: underline; }
